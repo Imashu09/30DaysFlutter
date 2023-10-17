@@ -1,3 +1,5 @@
+import 'package:app2/screens/home_page.dart';
+import 'package:app2/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -9,14 +11,20 @@ class app2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      home: Center(
-        child: Material(
-          child: Container(
-            child: Text("This is text widget"),
-          ),
-        ),
+
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.lime),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.deepOrange
       ),
+    initialRoute: "/home",
+    routes: {
+        "/" : (context) => login_page(),
+        "/home": (context) => home_page(),
+    },
+
     );
 
   }
